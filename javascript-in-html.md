@@ -17,3 +17,40 @@ The primary method of inserting JavaScript into an HTML page is via the `<script
 - `src` - Optional: Indicates an external file that contains code to be executed.
 
 - `type` - Optional: Indicates the content type of the scripting language being used by the code block. Traditionally, this values has always been `"text/javaScript"`though deprecated. JavaScript files are typically served with `"application/x-javascripyt`. If the value is `module`, the code is treated as an **ES6** module and only then is eligible to use the `import` and `export` keywords.
+
+## Tag Placement
+
+Traditionally, all `<script>` element were placed within the `<head>` element on page, as in this example:
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Example HTML Page </title>
+        <script src="app1.js"></script>
+        <script src="app2.js"></script>
+    </head>
+    <body>
+        <!-- Content Here >
+    </body>
+</html>
+```
+
+The main purpose of this format was to keep external file references, both CSS files and javaScript files, in the same area. However, including all JavaScript files in the `<head>` of a document means that all of the JavaScript code must be downloaded, parsed, and interpreted before the page begins rendering (rendering begins when the browser recieves the opening `<body>` tag). For pages that require a lot of JavaScript code, this can cause noticable delay in a page rendering, during which time the browser will be completely blank. For this reason, modern web applications typically include all JavaScript references in the `<body>` element, after the page content, as shown in this example.
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Example HTML Page </title>
+
+    </head>
+    <body>
+        <!-- Content Here >
+        <script src="app1.js"></script>
+        <script src="app2.js"></script>
+    </body>
+</html>
+```
+
+Using this approach, the page is completely renderned in the browser before the JavaScript code is processed. The resulting user experience is percieved faster because the amount of time spent on a blank browser window is reduced.
