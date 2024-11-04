@@ -78,3 +78,25 @@ The HTML5 specification indicates that scripts will be executed in the order in 
 The `defer` attribute is supported only for external script files.
 
 **Note:** _For XHTML documents, specify the `defer` attribute as `defer = "defer"`. Also, they're other browsers that simply ignore this defer attribute and treat the script as it normally would. For this reason, it's still best to put deferred scripts at the bottom of the page._
+
+## Asynchronous Scripts
+
+HTML5 introduces the `async` attribute. The `async` attribute is similar to `defer` in that it changes the way the script is processsed. Also, similar to `defer`, `async` applies only to external scripts and signals the browser to begin downloading the file immediatly. Unlike `defer`, scripts marked as `async` are not guaranteed to execute in the order in which they're specified.
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Example HTML Page </title>
+        <script async src="app1.js"></script>
+        <script async src="app2.js"></script>
+    </head>
+    <body>
+        <!-- Content Here >
+    </body>
+</html>
+```
+
+The purpose of specifying an `async` script is to indicate that the page need not wait for the script to be downloaded and executed befire continuing to load.
+
+**Note** _For XHTML documents, specify the `async` attribute as `async ="async"`._
