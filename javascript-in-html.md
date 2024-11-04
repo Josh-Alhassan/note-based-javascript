@@ -54,3 +54,27 @@ The main purpose of this format was to keep external file references, both CSS f
 ```
 
 Using this approach, the page is completely renderned in the browser before the JavaScript code is processed. The resulting user experience is percieved faster because the amount of time spent on a blank browser window is reduced.
+
+## Deferred Scripts
+
+The purpose of `defer` is to indicate that a script won't be changing the structure of a page as it executes. As such, the script can be run safely after the entire page has been parsed. Setting the `defer` attribute on a `<script>` element signals to the browser that download should begin immediately but execution should be deferred.
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Example HTML Page </title>
+        <script defer src="app1.js"></script>
+        <script defer src="app2.js"></script>
+    </head>
+    <body>
+        <!-- Content Here >
+    </body>
+</html>
+```
+
+The HTML5 specification indicates that scripts will be executed in the order in which they appear.
+
+The `defer` attribute is supported only for external script files.
+
+**Note:** _For XHTML documents, specify the `defer` attribute as `defer = "defer"`. Also, they're other browsers that simply ignore this defer attribute and treat the script as it normally would. For this reason, it's still best to put deferred scripts at the bottom of the page._
