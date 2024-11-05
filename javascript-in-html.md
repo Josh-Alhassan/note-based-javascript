@@ -112,3 +112,27 @@ Although it's possible to embed JavaScript in HTML files directly, it's generall
 One notable consideration when configuring how external files are requested is their implication on request bandwidth. With SPDY/HTTP2, the per-request overhead is substantially reduced in so far as it may be advantageus to deliver scripts to the client as light weight independent JavaScript components.
 
 ## Document Modes??
+
+## The `<noscript>` Element
+
+Of particular concern to early browsers was the graceful degradation of pages when the browser didn't support JavaScript. To that end, the `<noscript>` element was created to procide alternate content for browsers without JavaScript. Although effectively 100% of browsers now support JavaScript, this element is still useful for browsers that explicitel disable JavaScript.
+
+The `<noscript>` element can contain any HTML elements, aside from `<script>`, that can be included in the document `<body>`. Any content contained in a `<noscript>` element will be displayed under the following two circumstances.
+
+> The browser doesn't support scripting
+> The browser scripting support is turned off.
+
+Example:
+
+```
+<html>
+    <head>
+        <title> The noscript element </title>
+    </head>
+    <body>
+        <noscript>
+            <p> This page requires a JavaScript enabled browser. </p>
+        </noscript>
+    </body>
+</html>
+```
