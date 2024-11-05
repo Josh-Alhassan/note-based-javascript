@@ -100,3 +100,15 @@ HTML5 introduces the `async` attribute. The `async` attribute is similar to `def
 The purpose of specifying an `async` script is to indicate that the page need not wait for the script to be downloaded and executed befire continuing to load.
 
 **Note** _For XHTML documents, specify the `async` attribute as `async ="async"`._
+
+## Inline Code Versus External files
+
+Although it's possible to embed JavaScript in HTML files directly, it's generally considered a best practice to include as much JavaScript as possible using external files. Keeping in mind thta there are no hard and fast rules regarding this practice, the argument for using external files are shown as follows:
+
+> **Maintanability** - JavaScript code that is sprinkled throughout various HTML pages turns code maintainance into a problem. It is much easier to have a directory for all javaScript fiels so that developers can edit JavaScript code independent of the markup in which it is used.
+
+> **Caching** - Browsers cache all externally linked JavaScript files according to specific settings. Menaing that if two pages are using the same file, the file is downloaded only once. This ultimately means faster page - load times.
+
+One notable consideration when configuring how external files are requested is their implication on request bandwidth. With SPDY/HTTP2, the per-request overhead is substantially reduced in so far as it may be advantageus to deliver scripts to the client as light weight independent JavaScript components.
+
+## Document Modes??
