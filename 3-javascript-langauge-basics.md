@@ -26,3 +26,16 @@ doSomethingImportant
 ```
 
 This is not strictly enforced, it is considered a best practice to adhere to the built-in ECMAScript functions and objects that follow this format.
+
+### Comments
+
+ECMAScript uses c-language comments for both single-line and block comments. A single-line comment begins with two forward-slash characters, such as this:
+
+`// single line comment`
+
+A block comment begins with a forward slash and asterik (/_) and ends with the opposite (_/), as in this example:
+
+```
+/* This is a multi-line
+comment */
+```
