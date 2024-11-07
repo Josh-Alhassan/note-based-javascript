@@ -39,3 +39,24 @@ A block comment begins with a forward slash and asterik (/_) and ends with the o
 /* This is a multi-line
 comment */
 ```
+
+### Strict Mode
+
+ECMAScript 5 (ES5) introduced the concept of `strict mode`. Strict mode is a different parsing and execution model for JavaScript, where some of the erratic behaviour of ECMAScript 3 is addressed and errors are thrown for unsafe activities. To enable `strict mode` for an entire script, include the following at the top:
+
+```
+"use strict"
+```
+
+Although this may look like a string that isn't assigned to a variable, this is a _pragma_ that tells supporting JavaScript engines to change into `strict mode`. This syntax was chosen spefically so as not to break ECMAScript 3 syntax.
+
+You may also specify just a function to execute on strict mode by including the _pragma_ at the top of the function body:
+
+```
+function doSomething() {
+    "use strict"
+    // function body
+}
+```
+
+Strict mode changes many parts of how JavaScript is executed. All modern browsers support strict mode.
