@@ -94,3 +94,15 @@ if (test) {
     console.log(test);
 }
 ```
+
+## Keywords & Reserved Words
+
+By rule, keywords are reserved and cannot be used as identifiers or property names.
+
+```
+break       do          in              typeof
+case        else        instanceof      var
+catch       export      new             void
+class       extends     return          while
+const       etc
+```
