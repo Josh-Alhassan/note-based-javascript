@@ -112,3 +112,22 @@ const       etc
 ECMAScript variables are loosely typed, meaning that a variable can hold any type of data. Every variable is simply a named placeholder for a value. There are three keywords that can be used to declare a variable: `var`, `const`, and `let`.
 
 ### The `var` Keywords
+
+To define a variable, use the `var` operator followed by the variable name (an identifier) like this:
+
+`var message;`
+
+This code defines a variable named `message` that can be used to hold any value. (Without initialization, it holds the special value `undefined`). ECMAScript implements variable initialization, so it's possible to define the variable and set its value at the same time, as in this example:
+
+`var message = "Hello World";`
+
+`message` is defined to hold a string value of "Hello World". Doing this initialization doesn't mark the variable as being a string type: It is simply the assignment of a value in the variable.
+
+It is still possible to not only change the value stored in the variable but also change the type of value such as this:
+
+```
+var message = "hello world";
+message = 100; // Legal, but not recommended
+```
+
+It is not recommended to switch the data type that a variable contains, but it is completely valid in ECMAScript.
