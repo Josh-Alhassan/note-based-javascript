@@ -106,3 +106,9 @@ catch       export      new             void
 class       extends     return          while
 const       etc
 ```
+
+## Variables
+
+ECMAScript variables are loosely typed, meaning that a variable can hold any type of data. Every variable is simply a named placeholder for a value. There are three keywords that can be used to declare a variable: `var`, `const`, and `let`.
+
+### The `var` Keywords
