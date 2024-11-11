@@ -170,3 +170,41 @@ var message = "hi",
 ```
 
 Here, these variables are defined and initialized. Because ECMAScript is loosely typed, variable initializations using different data types may be combined into a single statement. Inserting line breaks and indenting the variables is to help improve readability.
+
+### Var Declaration Hoisting
+
+When using `var` the following is possible becuase variables declared using that keyword are hoisted to the top of the function
+
+```
+function foo () {
+    console.log(age);
+    var age = 26;
+}
+
+function(); // undefined
+```
+
+The above doesn't throw an error because the ECMAScript runtime technically treats it like this:
+
+```
+function foo () {
+    var age;
+    console.log(age);
+    age = 26;
+}
+
+foo() // underfined
+```
+
+This is "hoisting," where the interpreter pulls all variable declarations to the top of it's scope. It also allows you to use redundant `var` declarations without penalty.
+
+```
+function foo() {
+    var age = 16;
+    var age = 26;
+    var age = 36;
+    console.log(age);
+}
+
+foo(); // 36
+```
