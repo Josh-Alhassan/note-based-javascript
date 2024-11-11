@@ -265,3 +265,25 @@ console.log(window.name); // "Joshua"
 let age = 26;
 console.log(window.age); // undefined
 ```
+
+### Let Declaration in Loops
+
+Prior to the advent of `let`, `for` loop defination involved using an iterator variable whose defination would bleed outside of the loop body:
+
+```
+for (var i = 0; i < 5; ++i) {
+    // do loop things
+}
+
+console.log(i); // 5
+```
+
+This is no longer a problem when switching to `let` declarations, as the iterator variable will be scoped only to the `for` loop block:
+
+```
+for (let i = 0; i < 5; ++i) {
+    // do loop things
+}
+
+console.log(i); // ReferenceError: i is not defined
+```
