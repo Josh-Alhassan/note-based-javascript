@@ -239,3 +239,17 @@ let age; // SyntaxError; identifier `age` has already been declared.
 ```
 
 **Note**: The different keywords do not declare different types of variables - They just specify how the variables exist inside the relevant scope.
+
+### Temporal Dead Zone
+
+Another important difference between `var` and `let` is that `let` declarations cannot be used in a way that assumes hoisting:
+
+```
+// name is hoisted
+console.log(name); // undefined
+var name = "Joshua";
+```
+
+The segment of execution that occurs before the declaration is referred to as the "Temporal Dead Zone," and any attempted references to those variables will throw a `ReferenceError`.
+
+TDZ is a concept that refers to the period between the declaration of a `let` or `const` variable and its initialization. During this time, the variable exists but cannot be accessed, and any attempt to access it will throw a `ReferenceError`.
