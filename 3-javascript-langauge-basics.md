@@ -208,3 +208,34 @@ function foo() {
 
 foo(); // 36
 ```
+
+### `let` Declarations
+
+`let` operators is nearly the same way as `var`, but with some important difference. Most notable is that `let` is block scoped. But `var` is function scoped.
+
+```
+if (true) {
+    var name = "Joshua";
+    console.log(name); // Joshua
+}
+
+console.log(name); // Joshua
+
+if (true) {
+    let age = 26;
+    console.log(age); // 26
+}
+
+console.log(age); // ReferenceError: age is not defined
+```
+
+Here, the age variable cannot be referenced outside the `if` block because its scope does not extend outside the block. Block scope is strictly a subset of function scope, so any scope limitations that apply to `var` declarations will also apply to `var` declarations.
+
+`let` declarations also does not allow for any redundant declarations within a block scope. Doing so will result in an error:
+
+```
+let age;
+let age; // SyntaxError; identifier `age` has already been declared.
+```
+
+**Note**: The different keywords do not declare different types of variables - They just specify how the variables exist inside the relevant scope.
