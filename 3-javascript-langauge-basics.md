@@ -131,3 +131,42 @@ message = 100; // Legal, but not recommended
 ```
 
 It is not recommended to switch the data type that a variable contains, but it is completely valid in ECMAScript.
+
+### Var Declaration Scope
+
+It's important to note that using `var` operator to define a variable makes it local to the function scope in which it was defined. For example, defining a variable inside of a function using `var` means that the variable is destroyed as soon as the function exits.
+
+```
+function test() {
+    var message = "Hello Function"; // local variable
+}
+
+test();
+console.log(message); // error!
+
+```
+
+the `message` variable is defined within a function using `var`. The function is called `test()`, which creates the variable and assigns its value. Immediately after that, the variable is destroyed so that the last line in the example causes an error. It is however possible to define a variable globally by simply omitting the `var` operator as follows:
+
+```
+function test() {
+    message = "Hello Function"; // globally variable
+}
+
+test();
+console.log(message); // "Hello Function"
+```
+
+By removing the `var` operator, the `message` variable becomes global.
+
+**Note**: _Although it's possible to define global variables by omitting the `var` operator, this approach is not recommended. Global variables defined locally are hard to maintain and cause confusion because it's not Immediately apparent if the omission of `var` was intentional. Strict mode throws a `ReferenceError` when an undeclared variable is assigned a value._
+
+If you need to define more than one variable, you can do so using a single statement, seperating each variable with a comma like this:
+
+```
+var message = "hi",
+    found = false,
+    age = 29
+```
+
+Here, these variables are defined and initialized. Because ECMAScript is loosely typed, variable initializations using different data types may be combined into a single statement. Inserting line breaks and indenting the variables is to help improve readability.
