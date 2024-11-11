@@ -253,3 +253,15 @@ var name = "Joshua";
 The segment of execution that occurs before the declaration is referred to as the "Temporal Dead Zone," and any attempted references to those variables will throw a `ReferenceError`.
 
 TDZ is a concept that refers to the period between the declaration of a `let` or `const` variable and its initialization. During this time, the variable exists but cannot be accessed, and any attempt to access it will throw a `ReferenceError`.
+
+### Global Declarations
+
+Unlike the `var` keyboard, when declaring variables using `let` in the global context, variables will not attach to the `window` object as they do with `var`.
+
+```
+var name = "Joshua";
+console.log(window.name); // "Joshua"
+
+let age = 26;
+console.log(window.age); // undefined
+```
