@@ -394,3 +394,68 @@ console.log(typeof number); // "number"
 Note that `typeof` is an operator and not a function, no paranthesis are required (although they can be used).
 
 Be aware that there are a few cases where `typeof` seemingly returns a confusing but technically correct value. Calling `typeof null` returns a value of "object", as the special value `null` is considered to be an empty object reference.
+
+## The Undefined Type
+
+The undefined type has only one value, which is the special value `undefined`. When a variable is declared using `var` or `let` but not initialised, it is assigned to the value of "undefined" as follows:
+
+```
+let message;
+console.log(message == undefined); // true
+```
+
+In the code above, the variable `message` is declared without initializing it. When compared with the literal value of `undefined` the two are equal.
+
+```
+let message = undefined;
+console.log(message == undefined); // true
+```
+
+The above code is unneccessary because, by default any uninitialized variables gets the value `undefined`
+
+Note that a variable containing the value of `undefined` is different from a variable that hasn't been defined at all.
+
+```
+let message; // This variable is declared but has a value undefined.
+
+// let age
+
+console.log(message); // "undefined"
+console.log(age); // Causes an error
+```
+
+Only one useful operation can be performed on an undeclared variable: You can call `typeof` on it (calling `delete` on an undeclared variable won't cause an error. But this isn't very useful and in fact throws an error in strict mode).
+
+The `typeof` operator returns "undefined" when called on an uninitialized variable but it also returns "undefined" when called on an undeclared variable, which can be a bit confusing.
+
+```
+let message; // This variable is declared but has no value of undefined
+
+// let age - This variable isn't declared
+
+console.log(typeof message); // "undefined"
+console.log(typeof age); // "undefined"
+```
+
+In both cases, calling typeof on the variable returns the string "undefined". Logically, this makes sense because no real operations can be performed with either variables even though they are technically very different.
+
+Note: _Even though uninitialized variables are automatically assigned a value of `undefined`, it is advisable to always initialise variables. Thatway, when `typeof` returns `undefined`, you will know that it's because a given variable hasn't been declared rather than was simply not initialised._
+
+The value `undefined` is falsy: therefore, you are able to more succinctly check for it wherever you might need to. Beaer in mind, however, that many other possible values are also falsy, so be careful in scenarios where you need totest for an exact value of `undefined` rather than just a falsy value:
+
+```
+let message; // this variable is declared but has a value of undefined.
+// 'age' is not defined
+
+if (message) {
+    // This block will not execute
+}
+
+if (!message) {
+    // This block will execute
+}
+
+if (age) {
+    // This will throw an error
+}
+```
