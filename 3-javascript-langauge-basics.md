@@ -364,3 +364,7 @@ With `let` and `const`, most developers willfind that they no longer need to use
 ### Prefer `const` over `let`
 
 Using `const` declarations allows the browser runtime to enforce constant variables, as well as for static code analysis tools to foresee illegal re-assignment operations. Therefore, many developers feel it is to their advantage to, by default, declare variables as `const` unless they know they will need to re-assign its value at some point. This allows for developers to more concretely reason about values that they know will never change, and also for quick detection of unexpected behaviour in cases where the code execution attempts to perform an unaticipated value re-assignment.
+
+# DATA TYPES
+
+There are six simple data types (also called _primitive_ types) in ECMAScript: undefined, Null, Boolean, Number, String, and Symbol. Symbol was newly introduced in ECMAScript 6. There's also one complex data type called object, which is an un-ordered list of name-value pairs. Because there's noway to define your own data type in ECMAScript, all values can be represented as one of these seven. Having only seven data types may seem like too few to fully represent data: However, ECMAScript's data types have dynamic aspects that make each single data type behave like several.
