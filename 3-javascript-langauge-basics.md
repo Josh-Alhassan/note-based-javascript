@@ -360,3 +360,7 @@ The introduction of `let` and `const` in ECMAScript 6 bring objectively better t
 ### Don't use `var`
 
 With `let` and `const`, most developers willfind that they no longer need to use `var` in their codebase anywhere. The patterns that emerge from restricting variable declaration to only `let` and `const` will serve to enforce higher codebase quality thanks to careful management of variable scope, declaration locality, and const correctness.
+
+### Prefer `const` over `let`
+
+Using `const` declarations allows the browser runtime to enforce constant variables, as well as for static code analysis tools to foresee illegal re-assignment operations. Therefore, many developers feel it is to their advantage to, by default, declare variables as `const` unless they know they will need to re-assign its value at some point. This allows for developers to more concretely reason about values that they know will never change, and also for quick detection of unexpected behaviour in cases where the code execution attempts to perform an unaticipated value re-assignment.
