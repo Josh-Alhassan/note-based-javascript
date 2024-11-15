@@ -354,3 +354,5 @@ for (const value of [1,2,3,4,5]) {
 ```
 
 ## Declaration Styles and Best Practices
+
+The introduction of `let` and `const` in ECMAScript 6 bring objectively better tooling to the language in the form of increased precision of declaration scope and semantics. It is no secret that the bizarre behaviour of `var` declarations caused the JavaScript community to pull its collective hair our for years as a result of all the problems it caused. In the wake of introduction of these new keywords, there are some increasingly common patterns emerging that can improve code quality.
