@@ -459,3 +459,53 @@ if (age) {
     // This will throw an error
 }
 ```
+
+## The Null Type
+
+The Null type is the second data type that has only one value: the special `null` value. Logically, a `null` value is an empty object pointer, which is why `typeof` returns `"object"` when it's passed a `null` value in the following example:
+
+```
+let car = null;
+console.log(typeof car); // "Object"
+```
+
+When defining a variable that is meant to later hold an object, it is advisable to initialise the variable `null` as opposed to anything else. That way, you can explicitly check for the value `null` to determine if the variable has been filled with an object reference at a later time, such as in this example:
+
+```
+if (car != null) {
+    // do something with car
+}
+```
+
+The value `undefined` is a derivative of `null`, so ECMA-262 defines them to be superficially equal as follows:
+
+```
+console.log(null == undefined); // true
+```
+
+Using the quality operator (==) between `null` and `undefined` always returns `true`, though keep in mind that this operator converts its operands for comparison purposes.
+
+Even though `null` and `undefined` are related, they have very different uses. You should never explicitly set the value of a variable to `undefined`, but same does not hold true for `null`. Anytime an object is expected but is not available, `null` should be used in its place. This helps to keep the paradigm of `null` as an empty object pointer and further differentiates it from `undefined`.
+
+The `null` type is falsy: therefore, you are able to more succinctly check for it wherever you might need to. Bear in mind, however that many other possible values are also falsy, so be careful in scenarios where you need to test for an exact value of `null` rather than just a falsy value:
+
+```
+let message = null;
+let age;
+
+if (message) {
+    // This block will not execute
+}
+
+if (!message) {
+    // This block will execute
+}
+
+if (age) {
+    // This block will not execute
+}
+
+if (!age) {
+    // This block will execute
+}
+```
