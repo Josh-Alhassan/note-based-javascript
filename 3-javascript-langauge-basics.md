@@ -368,3 +368,29 @@ Using `const` declarations allows the browser runtime to enforce constant variab
 # DATA TYPES
 
 There are six simple data types (also called _primitive_ types) in ECMAScript: undefined, Null, Boolean, Number, String, and Symbol. Symbol was newly introduced in ECMAScript 6. There's also one complex data type called object, which is an un-ordered list of name-value pairs. Because there's noway to define your own data type in ECMAScript, all values can be represented as one of these seven. Having only seven data types may seem like too few to fully represent data: However, ECMAScript's data types have dynamic aspects that make each single data type behave like several.
+
+## The `typeof` Operator
+
+Because ECMAScript is loosely typed, they need to be a way to determine the data type of a given variable. The `typeof` operator provides that information. Using the `typeof` operator on a value returns one of the following strings:
+
+> "undefined" if the value is undefined
+> "boolean" if the value is a Boolean
+> "string" if the value is string
+> "number" if the value is a number
+> "Object" if the value is an object (other than function or null)
+> "function" if the value is a function
+> "Symbol" if the value is a symbol
+
+The `typeof` operator is called like this:
+
+```
+let message = "some string";
+console.log(typeof message); // "string"
+
+let number = 95;
+console.log(typeof number); // "number"
+```
+
+Note that `typeof` is an operator and not a function, no paranthesis are required (although they can be used).
+
+Be aware that there are a few cases where `typeof` seemingly returns a confusing but technically correct value. Calling `typeof null` returns a value of "object", as the special value `null` is considered to be an empty object reference.
