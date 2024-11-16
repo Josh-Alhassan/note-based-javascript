@@ -509,3 +509,41 @@ if (!age) {
     // This block will execute
 }
 ```
+
+## The Boolean Type
+
+The Boolean type is one of the most frequently used types in ECMAScript and has only two literal values: `true` and `false`. These values are distinct from numeric values, so `true` is not equal to 1, and `false` is not equal to 0. Assignment of Boolean values to variables is as follows:
+
+```
+let found = true;
+let lost = false;
+```
+
+Note that the Boolean literals `true` and `false` are case sensitive, so `True` and `False` are valid as identifiers but not as Boolean values.
+
+though there are just two literals Boolean values, all types of values have Boolean equivalents in ECMAScript.To convert a value into its Boolean equivalent, the special `Boolean()` casting function is called, like this:
+
+```
+let message = "Hello World!";
+let messageAsBoolean = Boolean(message);
+```
+
+In this example, the string `message` is converted into a Boolean value and stored in `messageAsBoolean`. The `Boolean()` casting function can be called on any type of data and will always return a Boolean value. The rules for when a value is converted to `true` or `false` depends on the data type as much as the actual value. The following table outlines the various data types and their specific conversations.
+
+DATA TYPE VALUES CONVERTED TO TRUE VALUES CONVERTED TO FALSE
+Boolean true false
+String Any nonempty string "" (empty string)
+Number Any nonzero number 0, NaN
+Object Any Object null
+Undefined n/a undefined
+
+These conversions are important to understand because flow-control statements, such as the `if` statement, automatically performs this Boolean conversion, as shown here:
+
+```
+let message = "Hello World!";
+if (message) {
+    console.log("value is true")
+}
+```
+
+In this example, the console.log will be displayed because the string `message` is automatically converted into its Boolean equivalent (true). It's important to understand what variable you're using in a flow-control statement because of this automatic conversion. Mistakenly using an object instead of a Boolean can drastically alter the flow of your application.
